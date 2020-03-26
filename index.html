@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Website control</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kanit:300&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="stylejscss/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="sweetalert.css" rel="stylesheet">
+  <style>
+    html {
+        scroll-behavior: smooth;
+      }
+    body{
+      font-family: 'Kanit', sans-serif;
+    }
+    #map {
+        height: 100%;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+
+    table{
+      font-size: 12px;
+    }
+  </style>
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+        </div>
+      </a>
+      <hr>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#listAdmi">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </div>
+       
+      </a>
+      <hr>
+      <a class="sidebar-brand d-flex align-items-center justify-content-center addcar" href="#listcar">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </div>
+      </a>
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Sutthinai Senkram</span>
+                <img class="img-profile rounded-circle" src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t1.0-9/78767586_2426986264222964_3761941646745272320_n.jpg?_nc_cat=107&_nc_ohc=FHChnDWd0NcAX_j7c25&_nc_ht=scontent.fbkk5-7.fna&oh=b0532e120373f0c7e33355c230b587ec&oe=5E9201EC">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">จำนวนรถเก็บขยะ (Garbage truck)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="countCar" style="font-size: 2rem;">0</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fa fa-car fa-2x text-primary" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">จำนวนเจ้าหน้าที่ (Number of staff)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="countAdmin" style="font-size: 2rem;">0</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fa fa-users fa-2x text-success" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-4 col-md-12 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">จำนวนจุดหมาย (Number of destinations)</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="countUser" style="font-size: 2rem;">0</div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fa fa-bullseye fa-2x text-danger" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>            
+        </div>
+
+        <div class="row">
+          <!-- map -->
+          <div class="col-xl-12 col-md-12 mb-4">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">แผนที่ <i class="fa fa-street-view" aria-hidden="true"></i></h6>
+              </div>
+              <div class="card-body">
+                <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                <div id="map"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--end map -->
+            <div class="col-xl-12 col-md-12 mb-4" id="listAdmi">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-danger">รายชื่อเจ้าหน้าที่ <i class="fa fa-users" aria-hidden="true"></i></h6> 
+                </div>
+                <div class="card-body">
+                  <div></div>
+                    <table class='table table-bordered' >
+                      <thead>
+                        <tr class='text-center'>
+                          <th >ลำดับ</th>
+                          <th >ชื่อ-สกุล</th>
+                          <th>ตำแหน่ง</th>
+                          <th >เบอร์โทรติดต่อ</th>
+                          <th colspan='2' >จัดงาน</th>
+                        </tr>                 
+                      </thead>
+                      <tbody id="tableAdmin">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-xl-12 col-md-12 mb-4" id="listcar" style="display: none;">
+              <div class="card shadow mb-4">
+                
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-success">เพิ่มรถ  <i class="fa fa-car" aria-hidden="true"></i></h6> 
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="text" class="form-control" id="nameAdmincar" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Lastname</label>
+                      <input type="text" class="form-control" id="lastnameAdmincar" aria-describedby="emailHelp">
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-success btn-sm saveadmincar">Save</button>
+                        <button type="submit" class="btn btn-danger btn-sm addcarclose">Close</button>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+     <br>
+     <br>
+     <br>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white ">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020 by Sutthinai Senkram</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" id="removeselect" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="listselect" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="title">Modal title</h5> <span id="titlekey" style="display: none;"></span>
+        <button type="button" class="close" id="removeselect"  data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group">
+              <select class="form-control" id="selectuser">
+                <option>Name</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group">
+                 <input type="text" class="form-control" id="Latitude" placeholder="Latitude">   
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 col-lg-4">
+            <div class="form-group">
+              <input type="text" class="form-control" id="Longitude" placeholder="Longitude">    
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-sm senddata" data-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-danger btn-sm" id="removeselect" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="stylejscss/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDORBF0ASdzlmYBWy4n3ZI9dFyUmmgwV8k",
+    authDomain: "tasting-3c49c.firebaseapp.com",
+    databaseURL: "https://tasting-3c49c.firebaseio.com",
+    projectId: "tasting-3c49c",
+    storageBucket: "tasting-3c49c.appspot.com",
+    messagingSenderId: "15669899999",
+    appId: "1:15669899999:web:5aa4f29506a1adcceeaf6a"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  <!-- map -->
+  <script>
+
+    var markers = [];
+    var map;
+  // Initialize and add the map
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: new google.maps.LatLng(15.116333, 104.359638),
+          mapTypeId: 'terrain',
+          icon:'image/markercenters.png'
+          
+      });
+      var cenetmark = new google.maps.Marker({
+          position: new google.maps.LatLng(15.116333, 104.359638),
+          map: map,
+          icon:'image/markercenters.png',
+          title:'Center'
+      });
+
+ 
+    }
+
+    function AddCar(data) {
+      var icon = 'image/cars.png';
+
+      var uluru = { lat: data.val().lat, lng: data.val().lng };
+
+      var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          icon:icon,
+          title:data.val().name
+      });
+
+      markers[data.key] = marker; 
+ 
+  }
+
+  // get firebase database reference...
+  var cars_Ref = firebase.database().ref('/car');
+    
+    // this event will be triggered when a new object will be added in the database...
+    cars_Ref.on('child_added', function (data) {
+        AddCar(data);
+        
+    });
+
+    // this event will be triggered on location change of any car...
+    cars_Ref.on('child_changed', function (data) {
+        markers[data.key].setMap(null);
+        AddCar(data);
+    });
+
+    // If any car goes offline then this event will get triggered and we'll remove the marker of that car...  
+    cars_Ref.on('child_removed', function (data) {
+        markers[data.key].setMap(null);
+    });
+
+
+
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxS2S5IstT8vGm_tnOL6i5BkAy98i3pYs&callback=initMap">
+  </script>
+
+
+<script>
+
+  
+$(".addcar").click(function(){
+  $("#listcar").css("display", "block");
+});
+
+$(".addcarclose").click(function(){
+  $("#listcar").hide(300);
+});
+
+$(".saveadmincar").click(function(){
+  var nameAdmincar = document.getElementById("nameAdmincar").value;
+  var lastnameAdmincar = document.getElementById("lastnameAdmincar").value;
+  var refcontadmin = firebase.database().ref('/car');
+  refcontadmin.push({name:nameAdmincar,lastname:lastnameAdmincar,lat:0,lng:0});
+  swal("เรียบร้อย!", "บันทึกข้อมูลสำเร็จ!", "success");
+  document.getElementById("nameAdmincar").value = " ";
+  document.getElementById("lastnameAdmincar").value = " ";
+  $("#listcar").hide(300);
+});
+var refonchange = firebase.database().ref('/');
+refonchange.on('child_changed', function (data) {
+  $("#tableAdmin").html(" ");
+  fechdata();
+});
+  fechdata();
+  var contUser = 0;
+  var ref = firebase.database().ref('/user');
+  ref.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childKey = childSnapshot.key;
+      var childData = childSnapshot.val();
+      contUser++;
+      document.getElementById("countUser").innerHTML = contUser;
+    });
+  });
+
+function fechdata(){
+  var contadmin = 0;
+  var refcontadmin = firebase.database().ref('/acount');
+  refcontadmin.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childKeyrefcontadmin = childSnapshot.key;
+      var childDatarefcontadmin = childSnapshot.val();      
+     
+      refcontadmin.child(childKeyrefcontadmin).once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          contadmin++;
+          var keys = childSnapshot.key;
+          var Data = childSnapshot.val();
+          // console.log(Data.tel);
+          var tr_str = 
+                    "<tr id='cssTable' >" +
+                      "<td class='text-center'>"+contadmin+"</td>" +
+                      "<td class='text-center'>" + Data.name + "</td>" +
+                      "<td class='text-center'>พนักงานเทศบาล</td>" +
+                      "<td class='text-center'>" + Data.tel  + "</td>" +
+                      "<td class='text-center'><button type='button' id='"+keys+"' class='btn btn-success insert btn-sm' data-toggle='modal' data-target='#listselect'><i class='fa fa-paper-plane' aria-hidden='true'></i></button></td>" +
+                      "<td class='text-center'><button type='button' id='"+keys+"' class='btn btn-danger delete  btn-sm'><i class='fa fa-trash' aria-hidden='true'></i></button></td>" +
+                    "</tr>";                
+                $("#tableAdmin").append(tr_str);
+                document.getElementById("countAdmin").innerHTML = contadmin;
+        });
+
+      });
+    });
+  });
+}
+ 
+  var contcar = 0;
+  var ref = firebase.database().ref('/car');
+  ref.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childKey = childSnapshot.key;
+      var childData = childSnapshot.val();
+      contcar++;
+      document.getElementById("countCar").innerHTML = contcar;
+    });
+  });
+
+  $(document).on('click', '.insert', function(){
+    var id = $(this).attr("id");
+    var refacount = firebase.database().ref('/acount');
+    refacount.once('value', function(snapshot) {
+      // console.log(snapshot.child(id).child(id).val().name);
+      $("#title").text((snapshot.child(id).child(id).val().name));
+      $("#titlekey").text(snapshot.child(id).child(id).key);
+      // console.log(snapshot.child(id).child(id).key);
+    });
+    
+    var refcontadmin = firebase.database().ref('/user');
+    refcontadmin.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          childSnapshot.forEach(function(data) {
+          var childKeyrefcontadmin = data.key;
+          var childDatarefcontadmin = data.val(); 
+          
+          
+          $("#selectuser").append('<option value='+childKeyrefcontadmin+'>'+childDatarefcontadmin.name+'</option>');     
+          // console.log(childDatarefcontadmin.name);
+          });
+        });
+      });
+   });
+
+   $(document).on('click', '.delete', function(){
+    var id = $(this).attr("id"); 
+    alert(id);
+
+    var refcontadmin = firebase.database().ref('/acount');
+      refcontadmin.once('value', function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var childKeyrefcontadmin = childSnapshot.key;
+          var childDatarefcontadmin = childSnapshot.val();      
+          refcontadmin.child(id).remove();
+              $("#tableAdmin").html(" ");
+              fechdata();
+              swal("success!", "เก็บขยะเรียบร้อย", "success");
+        });
+      });
+
+
+   });
+
+  //  select user
+  $("#selectuser").change(function(){
+    var id = this.value;
+    var refcontadmin = firebase.database().ref('/user/'+id+'/'+id);
+    refcontadmin.on("value", function(snapshot) {
+        console.log(snapshot.val());
+        var getlat = snapshot.val();
+        
+        $("#Latitude").attr("placeholder",getlat.lat).blur();
+        $("#Longitude").attr("placeholder",getlat.lng).blur();
+      }, function (error) {
+        console.log("Error: " + error.code);
+      });
+
+  });
+// select
+$(document).on('click', '#removeselect', function(){
+  $('#selectuser')
+    .find('option')
+    .remove()
+    .end()
+    .append('<option value="whatever">เลือก</option>')
+    .val('whatever')
+;
+});
+
+$(document).on('click', '.senddata', function(){
+  var latitude = document.getElementById("Latitude").getAttribute("placeholder");
+  var longitude = document.getElementById("Longitude").getAttribute("placeholder");
+  var id = $("#titlekey").text();
+  var selectedValue = document.getElementById("selectuser").value;
+  // var nameuser = firebase.database().ref('/user/'+selectedValue+'/'+selectedValue);
+  
+          
+          // var nameselect = nameuser.name;
+          // 
+          // console.log( nameuser.tal);
+          // refcontadmin = firebase.database().ref('/acount');
+          // //refcontadmin.child(id).child(id).child('work').push({lat:parseFloat(latitude),lng:parseFloat(longitude),name:nameselect});
+          // swal("Success!", "ส่งงานสำเร็จ", "success");
+          // $("#removeselect").trigger('click');
+            
+            // refcontadmin.child(id).child(id).child("work").child("lng").set(longitude);
+            // refcontadmin.child(id).child(id).child("work").child("name").set(nameselect);
+           
+    var refcontuser = firebase.database().ref('/user');
+    var refcontadmin = firebase.database().ref('/acount');
+     
+    refcontuser.once('value', function(snapshot) {
+     var name =  snapshot.child(selectedValue).child(selectedValue).child("name");
+      refcontadmin.child(id).child(id).child('work').push({lat:parseFloat(latitude),lng:parseFloat(longitude),name:name.val()});
+      swal("Success!", "ส่งงานสำเร็จ", "success");
+      $("#removeselect").trigger('click');
+    });
+   
+    // refcontuser.once('value', function(snapshot) {
+    //   snapshot.forEach(function(childSnapshot) {
+    //     childSnapshot.forEach(function(dataSnapshot) {
+    //       var childKeyrefcontadmin = dataSnapshot.key;
+    //       var childDatarefcontadmin = dataSnapshot.val();      
+    //       console.log(childDatarefcontadmin.name);
+    //       var nameuser = childDatarefcontadmin.name;
+          //
+    //     });        
+    //   });
+    // });
+  
+
+      
+
+});
+
+
+</script>
+<script src="sweetalert.js"></script>
+<script src="stylejscss/js/sb-admin-2.js"></script>
+<script src="sweetalert.min.js"></script>
+</body>
+</html>
